@@ -1,0 +1,6 @@
+framework module Pods_TopTenMoviesSwiftUI {
+  umbrella header "Pods-TopTenMoviesSwiftUI-umbrella.h"
+
+  export *
+  module * { export * }
+}
