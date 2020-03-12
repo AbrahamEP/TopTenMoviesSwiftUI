@@ -9,7 +9,11 @@
 import SwiftUI
 
 struct MovieListScreen: View {
-    var movies: [Movie]
+    @State var isFetching: Bool = false
+    
+    @State var movies: [Movie]
+    @State var isAlertVisible: Bool = false
+    
     var moviesList: some View {
         GeometryReader { geo in
             List(self.movies, id: \.self) { movie in
@@ -26,13 +30,61 @@ struct MovieListScreen: View {
     
     var body: some View {
         NavigationView {
-            moviesList
+            ZStack {
+                moviesList
+                ActivityIndicator(isAnimating: $isFetching)
+                    .configure {
+                        $0.color = .red
+                        $0.frame = CGRect(x: 0, y: 0, width: 100, height: 100)
+                        
+                    }
+                    .background(Color.yellow)
+                    .cornerRadius(100)
+                    .frame(width: 100, height: 100)
+            }
+            
             
             .navigationBarTitle(Text("Top 10 Rated"))
+            .navigationBarItems(trailing:
+                Button(action: {
+                    self.getMovies()
+                }, label: {
+                    Text("refresh")
+                })
+            )
         }
-        
+        .onAppear {
+            
+            self.getMovies()
+        }
     }
     
+    private func getMovies(completion: (() -> Void)? = nil) {
+        self.isFetching = true
+        API.shared.getMovies { (movies, errorMessage) in
+            self.isFetching = false
+            
+            guard let movies = movies else {
+                //An error ocurred. Show it to the user
+                if let completion = completion {
+                    completion()
+                }
+                if let errorMessage = errorMessage {
+//                    self.showAlertOneButtonWith(alertTitle: errorMessage, alertMessage: nil, buttonTitle: "Aceptar")
+                    //TODO: Add alert view
+                }else {
+//                    self.showAlertOneButtonWith(alertTitle: "Ocurrió un error", alertMessage: nil, buttonTitle: "Aceptar")
+                }
+                return
+            }
+
+            self.movies = movies
+            
+            if let completion = completion {
+                completion()
+            }
+        }
+    }
     
 }
 

@@ -26,8 +26,8 @@ struct MovieDetailScreen: View {
             }
             HStack {
                 Text("Overview")
-                .font(.headline)
-                .padding(.bottom, 10)
+                    .font(.headline)
+                    .padding(.bottom, 10)
                 Spacer()
             }
             Text(movieInfo.overview)
