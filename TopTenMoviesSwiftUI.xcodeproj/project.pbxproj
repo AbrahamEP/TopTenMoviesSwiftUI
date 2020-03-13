@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		041C9088241C0BB900FCBCB5 /* ImageSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041C9087241C0BB900FCBCB5 /* ImageSlider.swift */; };
 		046A1C2924195C5B00BC0C81 /* tmdbData.json in Resources */ = {isa = PBXBuildFile; fileRef = 046A1C2824195C5B00BC0C81 /* tmdbData.json */; };
 		046A1C2B24195D2100BC0C81 /* SampleData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046A1C2A24195D2100BC0C81 /* SampleData.swift */; };
 		0476E37E24199DE000196D3B /* MovieDetailScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0476E37D24199DE000196D3B /* MovieDetailScreen.swift */; };
@@ -30,6 +31,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		041C9087241C0BB900FCBCB5 /* ImageSlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageSlider.swift; sourceTree = "<group>"; };
 		046A1C2824195C5B00BC0C81 /* tmdbData.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = tmdbData.json; sourceTree = "<group>"; };
 		046A1C2A24195D2100BC0C81 /* SampleData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleData.swift; sourceTree = "<group>"; };
 		0476E37D24199DE000196D3B /* MovieDetailScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailScreen.swift; sourceTree = "<group>"; };
@@ -140,6 +142,7 @@
 				04AEA3F324181DC20074A517 /* MovieRow.swift */,
 				04AEA3F524181EAD0074A517 /* CircleImage.swift */,
 				04EC0FD4241ABD4A002900BF /* ActivityIndicator.swift */,
+				041C9087241C0BB900FCBCB5 /* ImageSlider.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -304,6 +307,7 @@
 			files = (
 				04AEA3F9241846000074A517 /* MovieListScreen.swift in Sources */,
 				04EC0FD5241ABD4A002900BF /* ActivityIndicator.swift in Sources */,
+				041C9088241C0BB900FCBCB5 /* ImageSlider.swift in Sources */,
 				04AEA3F124181D640074A517 /* Movie.swift in Sources */,
 				04AEA3F424181DC20074A517 /* MovieRow.swift in Sources */,
 				04AEA3D624181C8A0074A517 /* AppDelegate.swift in Sources */,

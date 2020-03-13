@@ -7,5 +7,7 @@ target 'TopTenMoviesSwiftUI' do
 
   # Pods for TopTenMoviesSwiftUI
   pod 'SDWebImageSwiftUI'
+  pod 'ImageSlideshow', '~> 1.8.3'
+  pod "ImageSlideshow/SDWebImage"
 
 end

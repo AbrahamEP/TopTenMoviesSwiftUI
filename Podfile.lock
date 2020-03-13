@@ -1,4 +1,10 @@
 PODS:
+  - ImageSlideshow (1.8.3):
+    - ImageSlideshow/Core (= 1.8.3)
+  - ImageSlideshow/Core (1.8.3)
+  - ImageSlideshow/SDWebImage (1.8.3):
+    - ImageSlideshow/Core
+    - SDWebImage (>= 3.7)
   - SDWebImage (5.5.2):
     - SDWebImage/Core (= 5.5.2)
   - SDWebImage/Core (5.5.2)
@@ -6,17 +12,21 @@ PODS:
     - SDWebImage (~> 5.3)
 
 DEPENDENCIES:
+  - ImageSlideshow (~> 1.8.3)
+  - ImageSlideshow/SDWebImage
   - SDWebImageSwiftUI
 
 SPEC REPOS:
   trunk:
+    - ImageSlideshow
     - SDWebImage
     - SDWebImageSwiftUI
 
 SPEC CHECKSUMS:
+  ImageSlideshow: 4694d7d699a1549582e7cc631fb392d8f91630f3
   SDWebImage: 4d5c027c935438f341ed33dbac53ff9f479922ca
   SDWebImageSwiftUI: 52dabce85cfc575e08ca4ce26bed1334159dbc2b
 
-PODFILE CHECKSUM: 56560c444a45a160ac7d025065c2005f458ff569
+PODFILE CHECKSUM: 452c762dc9ba752dcad7a2e639aad27b54cf2d9b
 
 COCOAPODS: 1.8.4

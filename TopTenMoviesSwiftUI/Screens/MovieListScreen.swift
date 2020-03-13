@@ -13,6 +13,7 @@ struct MovieListScreen: View {
     
     @State var movies: [Movie]
     @State var isAlertVisible: Bool = false
+    @State var errorMessage: String = ""
     
     var moviesList: some View {
         GeometryReader { geo in
@@ -32,15 +33,12 @@ struct MovieListScreen: View {
         NavigationView {
             ZStack {
                 moviesList
-                ActivityIndicator(isAnimating: $isFetching)
+                ActivityIndicator(isAnimating: $isFetching, delay: 1.2)
                     .configure {
                         $0.color = .red
-                        $0.frame = CGRect(x: 0, y: 0, width: 100, height: 100)
-                        
                     }
-                    .background(Color.yellow)
+                    .frame(width: 50 , height: 50)
                     .cornerRadius(100)
-                    .frame(width: 100, height: 100)
             }
             
             
@@ -52,6 +50,9 @@ struct MovieListScreen: View {
                     Text("refresh")
                 })
             )
+            .alert(isPresented: $isAlertVisible) {
+                Alert(title: Text("Error"), message: Text(self.errorMessage), dismissButton: .default(Text("Ok")))
+            }
         }
         .onAppear {
             
@@ -70,10 +71,9 @@ struct MovieListScreen: View {
                     completion()
                 }
                 if let errorMessage = errorMessage {
-//                    self.showAlertOneButtonWith(alertTitle: errorMessage, alertMessage: nil, buttonTitle: "Aceptar")
-                    //TODO: Add alert view
+                    self.errorMessage = errorMessage
                 }else {
-//                    self.showAlertOneButtonWith(alertTitle: "Ocurrió un error", alertMessage: nil, buttonTitle: "Aceptar")
+                    self.errorMessage = "Ocurrió un error"
                 }
                 return
             }

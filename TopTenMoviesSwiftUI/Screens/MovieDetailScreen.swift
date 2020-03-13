@@ -12,27 +12,35 @@ struct MovieDetailScreen: View {
     var movieInfo: MovieDetailViewModel
     
     var body: some View {
-        VStack(spacing: 10) {
-            Text(movieInfo.title)
-                .font(.largeTitle)
-            Image("MoviePlaceholder")
-            HStack {
-                Text(movieInfo.releaseDate)
-                    .font(.headline)
+        GeometryReader { geo in
+            VStack(spacing: 10) {
+                Text(self.movieInfo.title)
+                            .font(.largeTitle)
+                        ImageSlider(imagesUrls: [self.movieInfo.imageFrontUrl, self.movieInfo.imageBackUrl])
+                            .frame(height: geo.size.height * 0.35)
+                        
+                HStack {
+                    Text(self.movieInfo.releaseDate)
+                        .font(.headline)
+                    Spacer()
+                    Text("Rating: \(self.movieInfo.rating)")
+                        .font(.headline)
+                        .foregroundColor(.green)
+                }
+                HStack {
+                    Text("Overview")
+                        .font(.headline)
+                        .padding(.bottom, 10)
+                        Spacer()
+                }
+                Text(self.movieInfo.overview)
                 Spacer()
-                Text("Rating: \(movieInfo.rating)")
-                    .font(.headline)
-                    .foregroundColor(.green)
+                
+                
             }
-            HStack {
-                Text("Overview")
-                    .font(.headline)
-                    .padding(.bottom, 10)
-                Spacer()
-            }
-            Text(movieInfo.overview)
-            Spacer()
+            .padding(16)
         }
+        .navigationBarTitle("Movie", displayMode: .inline)
     }
 }
 
